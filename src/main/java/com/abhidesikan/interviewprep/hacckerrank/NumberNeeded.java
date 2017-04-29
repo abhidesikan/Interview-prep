@@ -8,7 +8,7 @@ import java.util.*;
 import java.text.*;
 import java.math.*;
 import java.util.regex.*;
-public class Solution {
+public class NumberNeeded {
     public static int numberNeeded(String first, String second) {
         int count = 0;
         int [] arr = new int[26];
