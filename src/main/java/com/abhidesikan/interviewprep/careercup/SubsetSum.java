@@ -13,7 +13,7 @@ public class SubsetSum {
 		if(n == 0 && sum != 0) {
 			return false;
 		}
-		if(sum > a[n-1]) {
+		if(a[n-1] > sum) {
 			checkSubsetSum(a, n-1, sum);
 		}
 		return checkSubsetSum(a, n-1, sum) || checkSubsetSum(a, n-1, sum-a[n-1]);
