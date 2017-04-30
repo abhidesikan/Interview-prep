@@ -21,6 +21,6 @@ public class SubsetSum {
 
 	public static void main(String[] args) {
 		int arr[] = { 1, 2, 5, 3};
-		System.out.println(checkSubsetSum(arr, arr.length, 20));
+		System.out.println(checkSubsetSum(arr, arr.length, 5));
 	}
 }
