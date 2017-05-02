@@ -10,7 +10,7 @@ public class Permutation {
     }
 
     public void permutation(String str, String prefix) {
-        if(toString().length() == 0) {
+        if(str.length() == 0) {
             System.out.println( "In here " + prefix + "\n");
         } else {
             for (int i=0; i<str.length(); i++) {
