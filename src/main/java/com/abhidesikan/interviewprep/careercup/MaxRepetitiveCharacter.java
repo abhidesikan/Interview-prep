@@ -22,7 +22,6 @@ public class MaxRepetitiveCharacter {
                 count = 0;
             }
         }
-
         return maxCount;
     }
 
