@@ -19,90 +19,37 @@ public class AddTwoNumbers {
 	}
 
 	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-		while (l1 == null && l2 == null) {
-			return null;
-		}
-		int carry = 0;
-		List<Integer> numbers = new ArrayList<Integer>();
-		while (l1 != null && l2 != null) {
-			int sum = 0;
-			sum += l1.val + l2.val;
-			if (sum >= 10) {
-				if (carry > 0) {
-					sum = sum + carry;
-					numbers.add(sum / 10);
-				} else {
-					numbers.add(sum % 10);
-					carry = sum / 10;
-				}
-			} else {
-				if (carry > 0) {
-					sum = sum + carry;
-				}
-				numbers.add(sum);
-				carry = 0;
+		ListNode c1 = l1;
+		ListNode c2 = l2;
+		ListNode sentinel = new ListNode(0);
+		ListNode d = sentinel;
+		int sum = 0;
+		while (c1 != null || c2 != null) {
+			sum /= 10;
+			if (c1 != null) {
+				sum += c1.val;
+				c1 = c1.next;
 			}
-			l1 = l1.next; l2 = l2.next;
-		}
-
-		while (l1 != null) {
-			if(carry > 0) {
-				numbers.add(l1.val + carry);
-				carry = 0;
-			} else {
-				numbers.add(l1.val);
+			if (c2 != null) {
+				sum += c2.val;
+				c2 = c2.next;
 			}
-			l1 = l1.next;
+			d.next = new ListNode(sum % 10);
+			d = d.next;
 		}
-
-		while (l2 != null) {
-			if(carry > 0) {
-				numbers.add(l2.val + carry);
-				carry = 0;
-			} else {
-				numbers.add(l2.val);
-			}
-			l2 = l2.next;
-		}
-
-
-		ListNode finalNode = null;
-		ListNode head = null;
-
-		for (int i = 0; i < numbers.size(); i++) {
-			if (finalNode == null) {
-				finalNode = addToNode(numbers.get(i), finalNode);
-				head = finalNode;
-			} else {
-				finalNode = addToNode(numbers.get(i), finalNode);
-			}
-		}
-
-		if (carry > 0) {
-			ListNode node = new ListNode(carry);
-			head.next = node;
-		}
-		return head;
-	}
-
-	public static ListNode addToNode(int val, ListNode actual) {
-		if (actual == null) {
-			actual = new ListNode(val);
-		} else {
-			actual.next = new ListNode(val);
-			actual = actual.next;
-		}
-		return actual;
+		if (sum / 10 == 1)
+			d.next = new ListNode(1);
+		return sentinel.next;
 	}
 
 	public static void main(String[] args) {
-		ListNode node = new ListNode(5);
-//		node.next = new ListNode(4);
-//		node.next.next = new ListNode(3);
+		ListNode node = new ListNode(9);
+		node.next = new ListNode(9);
+		node.next.next = new ListNode(9);
 
-		ListNode node2 = new ListNode(5);
-//		node2.next = new ListNode(6);
-//		node2.next.next = new ListNode(4);
+		ListNode node2 = new ListNode(9);
+		node2.next = new ListNode(9);
+		node2.next.next = new ListNode(9);
 
 		ListNode result = addTwoNumbers(node, node2);
 		while(result != null) {
