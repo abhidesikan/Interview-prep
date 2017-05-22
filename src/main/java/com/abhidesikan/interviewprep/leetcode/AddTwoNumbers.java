@@ -37,8 +37,9 @@ public class AddTwoNumbers {
 			d.next = new ListNode(sum % 10);
 			d = d.next;
 		}
-		if (sum / 10 == 1)
+		if (sum / 10 == 1) {
 			d.next = new ListNode(1);
+		}
 		return sentinel.next;
 	}
 
