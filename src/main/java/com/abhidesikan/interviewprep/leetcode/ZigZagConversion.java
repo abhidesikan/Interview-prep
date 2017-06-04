@@ -22,8 +22,10 @@ public class ZigZagConversion {
 			}
 		}
 		System.out.println(sb[0]);
+		System.out.println(sb[1]);
+		System.out.println(sb[2]);
 		for (int idx = 1; idx < sb.length; idx++) {
-			System.out.println(idx + " " + i + " " + sb[idx] + " final");
+			System.out.println(idx + " " + sb.length + " " + sb[idx] + " final");
 			sb[0].append(sb[idx]);
 		}
 		return sb[0].toString();
