@@ -16,7 +16,7 @@ public class ZigZagConversion {
 				System.out.println(idx + " " + i + " " + c[i] + " vertical");
 				sb[idx].append(c[i++]);
 			}
-			for (int idx = nRows-2; idx >= 1 && i < len; idx--) {
+			for (int idx = nRows - 2; idx >= 1 && i < len; idx--) {
 				System.out.println(idx + " " + i + " " + c[i] + " oblique");
 				sb[idx].append(c[i++]);
 			}

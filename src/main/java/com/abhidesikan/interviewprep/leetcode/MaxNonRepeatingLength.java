@@ -9,10 +9,10 @@ public class MaxNonRepeatingLength {
 
 	public static int lengthOfLongestSubstring(String s) {
 		int max = 0;
-		int i = 0,j = 0;
+		int i = 0, j = 0;
 		HashSet set = new HashSet();
-		while(i < s.length()) {
-			if(!set.contains(s.charAt(i))) {
+		while (i < s.length()) {
+			if (!set.contains(s.charAt(i))) {
 				set.add(s.charAt(i++));
 				max = Math.max(max, set.size());
 			} else {

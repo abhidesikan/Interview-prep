@@ -53,7 +53,7 @@ public class AddTwoNumbers {
 		node2.next.next = new ListNode(9);
 
 		ListNode result = addTwoNumbers(node, node2);
-		while(result != null) {
+		while (result != null) {
 			System.out.println(result.val);
 			result = result.next;
 		}

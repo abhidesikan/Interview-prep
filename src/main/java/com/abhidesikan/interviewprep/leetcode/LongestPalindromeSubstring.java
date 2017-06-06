@@ -9,12 +9,12 @@ public class LongestPalindromeSubstring {
 
 		char arr[] = s.toCharArray();
 		int len = s.length();
-		while(len >= 0) {
+		while (len >= 0) {
 			for (int i = 0; i + len - 1 < arr.length; i++) {
 				int left = i;
 				int right = i + len - 1;
 				boolean valid = true;
-				while(left < right) {
+				while (left < right) {
 					if (arr[left] != arr[right]) {
 						valid = false;
 						break;

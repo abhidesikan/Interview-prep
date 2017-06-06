@@ -24,10 +24,10 @@ public class Atoi {
 		if (first == arr.length) {
 			return 0;
 		} else {
-			if(arr[first] == '-') {
+			if (arr[first] == '-') {
 				flag = true;
 				first++;
-			} else if(arr[first] == '+') {
+			} else if (arr[first] == '+') {
 				first++;
 			}
 			int j = first;
@@ -39,15 +39,15 @@ public class Atoi {
 			}
 		}
 
-		if(result.equals("")) {
+		if (result.equals("")) {
 			return 0;
 		}
 
 		long value = 0;
 		try {
-			value  = Long.parseLong(result);
+			value = Long.parseLong(result);
 		} catch (NumberFormatException e) {
-			if(flag) {
+			if (flag) {
 				value = Integer.MIN_VALUE;
 				flag = false;
 			} else {
@@ -55,12 +55,12 @@ public class Atoi {
 			}
 		}
 
-		if(flag) {
+		if (flag) {
 			value = value * -1;
 		}
 		int finalValue = 0;
 
-		if(value > Integer.MAX_VALUE) {
+		if (value > Integer.MAX_VALUE) {
 			finalValue = Integer.MAX_VALUE;
 		} else if (value < Integer.MIN_VALUE) {
 			finalValue = Integer.MIN_VALUE;
