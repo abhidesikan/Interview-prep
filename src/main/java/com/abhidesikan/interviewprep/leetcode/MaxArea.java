@@ -5,24 +5,24 @@ package com.abhidesikan.interviewprep.leetcode;
  */
 public class MaxArea {
 
-	public int maxArea(int[] height) {
+	public static int maxArea(int[] height) {
+		int maxArea = 0;
+		int left = 0;
+		int right = height.length - 1;
 
-		int min = Integer.MIN_VALUE;
-		int max = Integer.MAX_VALUE;
-		int x1 = 0;
-		int x2 = 0;
-
-		for (int i = 0; i < height.length; i++) {
-			if (height[i] > min) {
-				min = height[i];
-				x1 = i;
-			}
-			if (height[i] < max) {
-				max = height[i];
+		while (left < right) {
+			maxArea = Math.max(maxArea, Math.min(height[left], height[right]) * (right - left));
+			if (height[left] < height[right]) {
+				left++;
+			} else {
+				right--;
 			}
 		}
-		int length = max-min;
+		return maxArea;
+	}
 
-		return 0;
+	public static void main(String[] args) {
+		int [] height = {2,5,3,4,9};
+		System.out.println(maxArea(height));
 	}
 }
