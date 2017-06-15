@@ -1,5 +1,7 @@
 package com.abhidesikan.interviewprep.leetcode;
 
+import java.util.HashMap;
+
 /**
  * Created by abhidesikan on 6/13/17.
  */
@@ -13,9 +15,8 @@ public class IntegerToRoman {
 		return M[num/1000] + C[(num%1000)/100] + X[(num%100)/10] + I[num%10];
 	}
 
-
 	public static void main(String[] args) {
-		System.out.println(intToRoman(3999));
+		System.out.println(intToRoman(3250));
 	}
 
 }
