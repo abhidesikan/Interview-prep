@@ -24,7 +24,7 @@ public class BalancedBrackets {
 					stack.push(']');
 					break;
 				default:
-					if (stack.empty() || (Character)stack.pop() != brackets) {
+					if (stack.empty() || (Character) stack.pop() != brackets) {
 						flag = true;
 					}
 					break;
