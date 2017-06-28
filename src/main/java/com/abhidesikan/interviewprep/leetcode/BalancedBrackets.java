@@ -40,7 +40,7 @@ public class BalancedBrackets {
 	}
 
 	public static void main(String[] args) {
-		String s = "{}{[()]}";
+		String s = "(())";
 		System.out.println(isValid(s));
 	}
 }
