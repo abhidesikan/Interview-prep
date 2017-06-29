@@ -7,25 +7,21 @@ import java.util.Arrays;
  */
 public class RemoveDuplicates {
 
-	public static int removeDuplicates(int[] nums) {
+	public static int removeDuplicates(int[] nums, int val) {
 
-		if(nums.length == 0) {
-			return 0;
+		int begin = 0;
+		for(int i=0; i<nums.length; i++) {
+			if(nums[i] != val) {
+				nums[begin++] = nums[i];
+			}
 		}
-		if(nums.length == 1) {
-			return 1;
-		}
-		int i=1;
-		for (int n : nums) {
-			if (n > nums[i-1])
-				nums[i++] = n;
-		}
-		return i;
+		return begin;
 	}
 
 	public static void main(String[] args) {
-		int arr [] = {1};
-		System.out.println(removeDuplicates(arr));
+		int arr [] = {1,3,3,2,2};
+		int val = 3;
+		System.out.println(removeDuplicates(arr, val));
 
 	}
 }
