@@ -12,6 +12,7 @@ public class RotatedSorted {
 
         while(left <= right) {
             int mid = left + (right-left)/2;
+            System.out.println(arr[mid]);
             if(arr[mid] == target) {
                 return mid;
             }
@@ -34,7 +35,7 @@ public class RotatedSorted {
 
     public static void main (String args[]) {
         int arr[] = {9, 11, 1, 2, 5, 7, 8};
-        int pos = searchValue(arr, 9);
+        int pos = searchValue(arr, 1);
         System.out.println(pos);
     }
 }
