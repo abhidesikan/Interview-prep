@@ -4,15 +4,6 @@ package com.abhidesikan.interviewprep.leetcode;
  * Created by abhidesikan on 6/10/17.
  */
 public class MergeTrees {
-	public static class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
 
 	public static TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
 		if (t1 == null) {
