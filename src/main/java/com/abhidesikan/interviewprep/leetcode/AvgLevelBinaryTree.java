@@ -17,9 +17,11 @@ public class AvgLevelBinaryTree {
 
 		while (!queue.isEmpty()) {
 			int n = queue.size();
+			System.out.println("queue size " + n);
 			double sum = 0;
 			for (int i = 0; i < n; i++) {
 				TreeNode temp = queue.poll();
+				System.out.println("node " + temp.val);
 				sum += temp.val;
 				if (temp.left != null) {
 					queue.offer(temp.left);
@@ -39,8 +41,9 @@ public class AvgLevelBinaryTree {
 		node.right = new TreeNode(2);
 		node.left.left = new TreeNode(10);
 		node.left.right = new TreeNode(4);
-//		node.right.left = new TreeNode(4);
-//		node.right.left = new TreeNode(6);
+		node.right.left = new TreeNode(4);
+		node.right.left = new TreeNode(6);
+		node.right.right = new TreeNode(7);
 
 		System.out.println(averageOfLevels(node));
 	}
