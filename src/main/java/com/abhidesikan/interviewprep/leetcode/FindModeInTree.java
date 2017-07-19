@@ -7,10 +7,10 @@ import java.util.*;
  */
 public class FindModeInTree {
 
-	HashMap<Integer, Integer> map = new HashMap<Integer,Integer>();
+	HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 
 	public int[] findMode(TreeNode root) {
-		if(root == null) {
+		if (root == null) {
 			return new int[0];
 		}
 
@@ -21,10 +21,10 @@ public class FindModeInTree {
 		System.out.println(map);
 
 		Iterator it = map.entrySet().iterator();
-		while(it.hasNext()) {
-			Map.Entry pair = (Map.Entry)it.next();
-			if((Integer)pair.getValue() > (Integer)maxCount) {
-				max = (Integer)pair.getKey();
+		while (it.hasNext()) {
+			Map.Entry pair = (Map.Entry) it.next();
+			if ((Integer) pair.getValue() > (Integer) maxCount) {
+				max = (Integer) pair.getKey();
 				maxCount = (Integer) pair.getValue();
 			}
 		}
@@ -32,26 +32,26 @@ public class FindModeInTree {
 		Iterator it2 = map.entrySet().iterator();
 		List<Integer> list = new ArrayList<Integer>();
 
-		while(it2.hasNext()) {
-			Map.Entry pair = (Map.Entry)it2.next();
-			if((Integer)pair.getValue() == maxCount) {
-				list.add((Integer)pair.getKey());
+		while (it2.hasNext()) {
+			Map.Entry pair = (Map.Entry) it2.next();
+			if ((Integer) pair.getValue() == maxCount) {
+				list.add((Integer) pair.getKey());
 			}
 		}
 
 		int arrFinal[] = new int[list.size()];
-		for(int i=0; i<arrFinal.length; i++) {
+		for (int i = 0; i < arrFinal.length; i++) {
 			arrFinal[i] = list.get(i);
 		}
 		return arrFinal;
 	}
 
 	public void inOrder(TreeNode node) {
-		if(node == null) {
+		if (node == null) {
 			return;
 		}
 		inOrder(node.left);
-		if(map.containsKey(node.val)) {
+		if (map.containsKey(node.val)) {
 			map.put(node.val, map.get(node.val) + 1);
 		} else {
 			map.put(node.val, 1);
