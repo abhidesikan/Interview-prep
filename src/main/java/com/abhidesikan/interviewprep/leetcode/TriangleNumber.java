@@ -1,21 +1,28 @@
 package com.abhidesikan.interviewprep.leetcode;
 
+import java.util.Arrays;
+
 /**
  * Created by abhidesikan on 6/10/17.
  */
 public class TriangleNumber {
 	public static int triangleNumber(int[] nums) {
 		int count = 0;
-		for(int i=0; i<nums.length; i++) {
-			for(int j=i+1; j<nums.length; j++) {
-				for(int k=j+1; k<nums.length; k++) {
-					if((nums[i] + nums[j]) > nums[k] && (nums[j] + nums[k]) > nums[i] && (nums[i] + nums[k]) > nums[j]) {
-						count++;
-					}
+
+		int n = nums.length;
+		Arrays.sort(nums);
+
+		for(int i = n-1; i >= 2; i--)  {
+			int l = 0; int r = i-1;
+			while (l < r) {
+				if(nums[l] + nums[r] > nums[i]) {
+					count += r-l;
+					r--;
+				} else {
+					l++;
 				}
 			}
 		}
-
 		return count;
 	}
 
