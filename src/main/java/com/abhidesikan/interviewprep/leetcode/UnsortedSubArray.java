@@ -19,7 +19,7 @@ public class UnsortedSubArray {
 
 		stack.clear();
 
-		for (int i = nums.length - 1; i > 0; i--) {
+		for (int i = nums.length - 1; i >= 0; i--) {
 			while (!stack.isEmpty() && nums[stack.peek()] < nums[i]) {
 				r = Math.max(r, stack.pop());
 			}
