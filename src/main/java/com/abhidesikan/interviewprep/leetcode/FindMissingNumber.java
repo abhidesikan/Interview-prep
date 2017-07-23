@@ -17,6 +17,7 @@ public class FindMissingNumber {
 		}
 		System.out.println(Arrays.toString(nums));
 		for(int i = 0; i < nums.length; i++) {
+			System.out.println(nums[i]);
 			if(nums[i] > 0) {
 				ret.add(i+1);
 			}
