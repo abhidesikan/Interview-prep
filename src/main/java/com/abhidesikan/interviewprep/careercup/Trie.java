@@ -13,7 +13,7 @@ public class Trie {
 	public static void insertWord(String word) {
 
 		HashMap<Character, TrieNode> children = root.children;
-		TrieNode t = null;
+		TrieNode t;
 
 		for(int i=0; i<word.length(); i++) {
 			char c = word.charAt(i);
