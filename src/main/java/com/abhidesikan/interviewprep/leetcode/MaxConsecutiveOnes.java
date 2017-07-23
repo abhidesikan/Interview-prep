@@ -6,19 +6,19 @@ public class MaxConsecutiveOnes {
 		int count = 0;
 		int max = 0;
 		int i = 0;
-		while(i < nums.length) {
-			if(nums[i] == 1) {
+		while (i < nums.length) {
+			if (nums[i] == 1) {
 				count++;
 				i++;
 				continue;
 			}
-			if(max < count) {
+			if (max < count) {
 				max = count;
 			}
 			count = 0;
 			i++;
 		}
-		if(max < count) {
+		if (max < count) {
 			max = count;
 		}
 		return max;
