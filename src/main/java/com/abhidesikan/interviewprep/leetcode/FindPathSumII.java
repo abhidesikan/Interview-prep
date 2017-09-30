@@ -8,7 +8,7 @@ public class FindPathSumII {
 	List<List<Integer>> finalList = new ArrayList<>();
 
 	public List<List<Integer>> pathSum(TreeNode root, int sum) {
-		if(root == null) {
+		if (root == null) {
 			return finalList;
 		}
 		List<Integer> sumList = new ArrayList();
@@ -17,19 +17,19 @@ public class FindPathSumII {
 	}
 
 	public void pathSum(TreeNode node, int sum, int runningSum, List<Integer> sumList) {
-		if(node == null) {
+		if (node == null) {
 			return;
 		}
 		runningSum += node.val;
 		sumList.add(node.val);
-		if(runningSum == sum && node.left == null && node.right == null) {
+		if (runningSum == sum && node.left == null && node.right == null) {
 			finalList.add(new ArrayList<Integer>(sumList));
-			sumList.remove(sumList.size()-1);
+			sumList.remove(sumList.size() - 1);
 			return;
 		}
 		pathSum(node.left, sum, runningSum, sumList);
 		pathSum(node.right, sum, runningSum, sumList);
-		sumList.remove(sumList.size()-1);
+		sumList.remove(sumList.size() - 1);
 	}
 
 	public static void main(String[] args) {
