@@ -33,7 +33,7 @@ public class LongestCommonPrefix {
 	}
 
 	public static void main(String[] args) {
-		String[] arr = {"aaa", "aa", "aaa"};
+		String[] arr = {"aaa", "ab", "aba"};
 		System.out.println(longestCommonPrefix(arr));
 	}
 }
