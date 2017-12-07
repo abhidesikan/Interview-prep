@@ -23,6 +23,7 @@ public class FindPathSum {
 	public static void main(String[] args) {
 		TreeNode node = new TreeNode(4);
 		node.left = new TreeNode(3);
-		System.out.println(new FindPathSum().hasPathSum(node, 7));
+		node.right = new TreeNode(5);
+		System.out.println(new FindPathSum().hasPathSum(node, 12));
 	}
 }
