@@ -6,7 +6,7 @@ public class ZigZagLevelOrder {
 	public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
 
-		if(root == null) {
+		if (root == null) {
 			return result;
 		}
 
@@ -15,22 +15,24 @@ public class ZigZagLevelOrder {
 		q.add(root);
 		q.add(null);
 		int level = 1;
-		while(!q.isEmpty()) {
+		while (!q.isEmpty()) {
 			TreeNode node = q.remove();
-			if(node == null) {
-				if(level % 2 == 0) {
+			if (node == null) {
+				if (level % 2 == 0) {
 					Collections.reverse(temp);
 				}
 				result.add(temp);
 				temp = new ArrayList<>();
 				level++;
-				if (!q.isEmpty()) q.add(null);
+				if (!q.isEmpty()) {
+					q.add(null);
+				}
 			} else {
 				temp.add(node.val);
-				if(node.left != null) {
+				if (node.left != null) {
 					q.add(node.left);
 				}
-				if(node.right != null) {
+				if (node.right != null) {
 					q.add(node.right);
 				}
 			}
