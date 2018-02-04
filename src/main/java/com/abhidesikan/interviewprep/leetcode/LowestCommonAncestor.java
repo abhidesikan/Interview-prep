@@ -24,9 +24,9 @@ public class LowestCommonAncestor {
 	public static void main(String[] args) {
 		TreeNode node = new TreeNode(3);
 		node.left = new TreeNode(4);
-		node.right = new TreeNode(5);
+//		node.right = new TreeNode(5);
 
-		System.out.println(lowestCommonAncestor(node, node.left, node.right).val);
+		System.out.println(lowestCommonAncestor(node, node, node.right).val);
 	}
 
 }
