@@ -8,36 +8,45 @@ import java.util.*;
 public class ThreeSum {
 
 	public static List<List<Integer>> threeSum(int[] nums) {
-		List<List<Integer>> finalList = new ArrayList<List<Integer>>();
 
-		HashSet<List<Integer>> set = new HashSet<List<Integer>>();
+		List<List<Integer>> result = new ArrayList<>();
 
-		if (nums.length < 3) {
-			return finalList;
+		if(nums.length == 0) {
+			return result;
 		}
 
+
 		Arrays.sort(nums);
-		for (int i = 0; i < nums.length && nums[i] <= 0; i++) {
-			for (int j = i + 1, k = nums.length - 1; j < k; ) {
-				if (nums[i] + nums[j] + nums[k] == 0) {
-					List<Integer> list = new ArrayList<Integer>();
-					list.add(nums[i]);
-					list.add(nums[j]);
-					list.add(nums[k]);
-					if (set.add(list)) {
-						finalList.add(list);
+
+		for(int i=0; i+2 < nums.length; i++) {
+			if(i > 0 && nums[i-1] == nums[i]) {
+				continue;
+			}
+			int j=i+1; int k = nums.length-1;
+
+			int target = -nums[i];
+			while(j < k) {
+				if(nums[j] + nums[k] == target) {
+					List list = new ArrayList();
+					list.add(nums[i]); list.add(nums[j]); list.add(nums[k]);
+					result.add(list);
+					j++;
+					k--;
+					while (j < k && nums[j] == nums[j-1]) {
+						j++;
 					}
-					j++;
+					while (j < k && nums[k] == nums[k+1]) {
+						k--;
+					}
+				} else if(nums[j] + nums[k] > target) {
 					k--;
-				} else if (nums[i] + nums[j] + nums[k] < 0) {
-					j++;
 				} else {
-					k--;
+					j++;
 				}
 			}
 		}
 
-		return finalList;
+		return result;
 	}
 
 	public static void main(String[] args) {
