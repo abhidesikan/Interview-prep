@@ -7,62 +7,47 @@ import java.util.*;
  */
 public class MostFrequentSubTreeSum {
 
-	HashMap<Integer, Integer> sumMap = new HashMap<Integer, Integer>();
+	static HashMap<Integer, Integer> sumMap = new HashMap<Integer, Integer>();
+	static int maxFreq = 0;
 
-	public int[] findFrequentTreeSum(TreeNode root) {
-		if (root == null) {
+	public static int[] findFrequentTreeSum(TreeNode root) {
+
+		if(root == null) {
 			return new int[0];
 		}
-		inOrder(root);
-		System.out.println("final map "+ sumMap);
-		int count = 0;
-		Iterator it = sumMap.entrySet().iterator();
-		while (it.hasNext()) {
-			Map.Entry pair = (Map.Entry) it.next();
-			if ((Integer) pair.getValue() > count) {
-				count = (Integer) pair.getValue();
+
+		postOrder(root);
+		List<Integer> list = new ArrayList();
+
+		for(int key : sumMap.keySet()) {
+			if(sumMap.get(key) == maxFreq) {
+				list.add(key);
 			}
 		}
 
-		List<Integer> list = new ArrayList<Integer>();
-		it = sumMap.entrySet().iterator();
-		while (it.hasNext()) {
-			Map.Entry pair = (Map.Entry) it.next();
-			if ((Integer) pair.getValue() == count) {
-				list.add((Integer)pair.getKey());
-			}
-		}
-		int arr[] = new int[list.size()];
-		for(int i=0; i<list.size(); i++) {
-			arr[i] = list.get(i);
-		}
+		int[] arr = list.stream().mapToInt(i -> i).toArray();
+
 		return arr;
 	}
 
-	public void inOrder(TreeNode node) {
-		if (node == null) {
-			return;
+	public static int postOrder(TreeNode node) {
+		if(node == null) {
+			return 0;
 		}
-		inOrder(node.left);
-		int sum = findSubTreeSums(node);
-		if (sumMap.containsKey(sum)) {
-			int curSum = sumMap.get(sum);
-			sumMap.put(sum, curSum + 1);
+
+		int left = postOrder(node.left);
+		int right = postOrder(node.right);
+		int sum = node.val + left + right;
+		if(sumMap.containsKey(sum)) {
+			sumMap.put(sum, sumMap.get(sum) + 1);
 		} else {
 			sumMap.put(sum, 1);
 		}
-		System.out.println("current map "+sumMap);
-		inOrder(node.right);
+		maxFreq = Math.max(maxFreq, sumMap.get(sum));
+
+		return sum;
 	}
 
-
-	public int findSubTreeSums(TreeNode node) {
-
-		if (node == null) {
-			return 0;
-		}
-		return node.val + findSubTreeSums(node.left) + findSubTreeSums(node.right);
-	}
 
 	public static void main(String[] args) {
 		TreeNode node = new TreeNode(5);
