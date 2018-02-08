@@ -9,9 +9,10 @@ public class KthLargestElementInArray {
 
 		for (int num : nums) {
 			queue.offer(num);
-
+			System.out.println(queue);
 			if (queue.size() > k) {
 				queue.poll();
+				System.out.println("after poll " + queue);
 			}
 		}
 		return queue.peek();
