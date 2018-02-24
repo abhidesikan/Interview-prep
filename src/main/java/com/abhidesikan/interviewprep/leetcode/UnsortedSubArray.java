@@ -26,6 +26,7 @@ public class UnsortedSubArray {
 			stack.push(i);
 		}
 
+		System.out.println(nums[l] +  " " + nums[r]);
 		return r - l > 0 ? r - l + 1 : 0;
 	}
 

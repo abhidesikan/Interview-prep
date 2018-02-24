@@ -38,10 +38,8 @@ public class LargestValueAtLevel {
 				}
 			}
 			maxList.add(max);
-
 		}
 		return maxList;
-
 	}
 
 	public static void main(String[] args) {
