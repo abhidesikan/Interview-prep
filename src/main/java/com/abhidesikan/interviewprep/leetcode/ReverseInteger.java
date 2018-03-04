@@ -1,7 +1,5 @@
 package com.abhidesikan.interviewprep.leetcode;
 
-import java.math.BigInteger;
-
 /**
  * Created by abhidesikan on 6/4/17.
  */
@@ -14,6 +12,8 @@ public class ReverseInteger {
 		while (x != 0) {
 			int tail = x % 10;
 			int newResult = result * 10 + tail;
+			System.out.println(result + " result");
+			System.out.println(newResult + " new result");
 			if ((newResult - tail) / 10 != result) {
 				return 0;
 			}
@@ -24,7 +24,7 @@ public class ReverseInteger {
 	}
 
 	public static void main(String[] args) {
-		int x = -2147483648;
+		int x = 1534236469;
 		System.out.println(reverse(x));
 	}
 }
