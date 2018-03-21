@@ -9,6 +9,9 @@ public class Trie {
 
 	private static TrieNode root = new TrieNode();
 
+	public TrieNode getRoot() {
+		return root;
+	}
 
 	public static void insertWord(String word) {
 

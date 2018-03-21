@@ -6,7 +6,7 @@ public class ReverseWordsII {
 
 	public static void reverseWords(char[] str) {
 
-		swapChar(str, 0, str.length - 1);
+	//	swapChar(str, 0, str.length - 1);
 		int start = 0;
 		for (int i = 0; i < str.length; i++) {
 			if (str[i] == ' ') {
@@ -28,7 +28,7 @@ public class ReverseWordsII {
 	}
 
 	public static void main(String[] args) {
-		char[] arr = new char[] {'a', 'b', 'h', 'i'};
+		char[] arr = new char[] {'a', 'b', 'h', 'i', ' ', 's', 'h', 'e', 'k'};
 		reverseWords(arr);
 		System.out.println(Arrays.toString(arr));
 	}

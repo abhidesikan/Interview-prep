@@ -14,7 +14,7 @@ public class WordBreak {
 		int[] visited = new int[s.length()];
 		while (!queue.isEmpty()) {
 			int start = queue.remove();
-			if (visited[start] == 0) {
+	//		if (visited[start] == 0) {
 				for (int end = start + 1; end <= s.length(); end++) {
 					if (wordDict.contains(s.substring(start, end))) {
 						queue.add(end);
@@ -23,17 +23,19 @@ public class WordBreak {
 						}
 					}
 				}
-				visited[start] = 1;
+	//			visited[start] = 1;
 			}
-		}
+
 		return false;
 	}
 
 	public static void main(String[] args) {
 		List<String> list = new ArrayList<>();
-		list.add("cats");
+	//	list.add("cats");
 		list.add("dogs");
 		list.add("and");
-		System.out.println(wordBreak("catsanddogs", list));
+		list.add("cat");
+		list.add("sand");
+		System.out.println(wordBreak("catcatsanddogs", list));
 	}
 }
