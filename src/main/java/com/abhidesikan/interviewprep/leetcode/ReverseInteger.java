@@ -24,7 +24,7 @@ public class ReverseInteger {
 	}
 
 	public static void main(String[] args) {
-		int x = 1534236469;
+		int x = 231;
 		System.out.println(reverse(x));
 	}
 }
