@@ -14,6 +14,7 @@ public class Subsets {
 
 	private static void backtrack(List<List<Integer>> list , List<Integer> tempList, int [] nums, int start){
 		System.out.println("Adding to master list : " + tempList);
+		System.out.println(start + " start  ");
 		list.add(new ArrayList<>(tempList));
 		for(int i = start; i < nums.length; i++){
 			System.out.println("Adding item to list : " + nums[i]);
