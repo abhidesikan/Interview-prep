@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class findErrorNums {
+public class FindErrorNums {
 	public static int[] findErrorNums(int[] nums) {
 
 		int duplicate = 0;
