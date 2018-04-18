@@ -1,7 +1,7 @@
 package com.abhidesikan.interviewprep.leetcode;
 
 public class MaximalSquare {
-	public int maximalSquare(char[][] matrix) {
+	public static int maximalSquare(char[][] matrix) {
 		int maxSize = 0;
 		for(int i=0; i<matrix.length; i++) {
 			for(int j=0; j<matrix[0].length; j++) {
@@ -14,7 +14,7 @@ public class MaximalSquare {
 		return maxSize*maxSize;
 	}
 
-	public int findMaxSquareSize(int i, int j, char[][] matrix, int size) {
+	public static int findMaxSquareSize(int i, int j, char[][] matrix, int size) {
 		if((i + size) >= matrix.length || (j+size) >= matrix[0].length) {
 			return size;
 		}
@@ -36,5 +36,9 @@ public class MaximalSquare {
 		}
 
 		return findMaxSquareSize(i, j, matrix, size+1);
+	}
+
+	public static void main(String[] args) {
+		System.out.println(maximalSquare(new char[][] {{'1','1','1','0'},{'1','1','1','0'},{'1','1','1','0'},{'1','1','1','0'}}));
 	}
 }
