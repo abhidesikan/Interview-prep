@@ -13,6 +13,8 @@ import java.util.List;
 
 /**
  * A class which has methods to get the final score and running score of a bowling game based on input pins.
+ *
+ * Assumptions - Number of pins felled is a number between [0-10]. A gutter or a foul are both counted as 0.
  */
 public class BowlingGame {
 
