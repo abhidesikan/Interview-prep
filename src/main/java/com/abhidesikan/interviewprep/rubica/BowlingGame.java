@@ -65,11 +65,16 @@ public class BowlingGame {
 		System.out.println("The final score after this game is " + score[score.length - 1]);
 	}
 
+	/**
+	 * Method to print out the running score for the given input frame and it's corresponding record.
+	 * @param frame The input frame number. (1-10)
+	 */
 	public static void printScoreAndRecordOfFrame(int frame) {
 		System.out.println("The running score at frame " + frame + " is " + score[frame]);
 		System.out.println("The record at this frame is " + record[frame]);
 		System.out.println("----------------------------------------");
 	}
+
 
 	public static void main(String[] args) {
 		List<Integer> pinsList = new ArrayList<>();
