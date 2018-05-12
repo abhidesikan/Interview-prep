@@ -20,13 +20,9 @@ public class PhoneNumberLetterCombinations {
 				}
 			}
 		}
-
 		list = removeDummy(list);
-
 		return list;
-
 	}
-
 
 	public static LinkedList<String> removeDummy(LinkedList<String> list) {
 
