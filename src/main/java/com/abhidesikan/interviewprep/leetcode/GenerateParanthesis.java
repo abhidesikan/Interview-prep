@@ -14,7 +14,7 @@ public class GenerateParanthesis {
 	}
 
 	public static void backtrack(List<String> list, String str, int open, int close, int max) {
-		System.out.println("open  "+ open + "close " + close);
+		System.out.println("open "+ open + " close " + close);
 
 		if (str.length() == max * 2) {
 			System.out.println(str);

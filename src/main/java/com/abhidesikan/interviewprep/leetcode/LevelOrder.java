@@ -14,7 +14,6 @@ public class LevelOrder {
 			return list;
 		}
 
-
 		Queue<TreeNode> queue = new LinkedList<>();
 		queue.add(root);
 		queue.add(null);

@@ -17,7 +17,6 @@ public class PascalsTriangle {
 			for(int j=1; j<list.size()-1;j++){
 				list.set(j, list.get(j+1) + list.get(j));
 			}
-
 		}
 		return list;
 	}

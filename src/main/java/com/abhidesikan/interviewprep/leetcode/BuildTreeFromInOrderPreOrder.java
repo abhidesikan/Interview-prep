@@ -32,7 +32,6 @@ public class BuildTreeFromInOrderPreOrder {
 		node.right = buildTree(pre, in, index + 1, end);
 
 		return node;
-
 	}
 
 	public int search(int[] in, int start, int end, int val) {

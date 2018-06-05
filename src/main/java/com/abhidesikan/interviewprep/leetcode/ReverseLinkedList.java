@@ -2,7 +2,6 @@ package com.abhidesikan.interviewprep.leetcode;
 
 public class ReverseLinkedList {
 	public ListNode reverseList(ListNode head) {
-
 		ListNode prev = null;
 		ListNode next = null;
 		ListNode cur = head;

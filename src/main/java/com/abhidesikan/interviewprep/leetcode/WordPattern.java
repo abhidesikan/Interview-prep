@@ -11,9 +11,7 @@ public class WordPattern {
 		if(arr1.length != arr2.length) {
 			return false;
 		}
-
 		Map<Character, String> map = new HashMap<>();
-
 		for(int i=0; i<arr1.length; i++) {
 			if(map.containsKey(arr1[i])) {
 				if(!map.get(arr1[i]).equals(arr2[i])) {

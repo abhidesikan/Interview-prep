@@ -24,7 +24,6 @@ public class RotateList {
 		head.next = null;
 
 		return copyHead;
-
 	}
 
 	public static void main(String[] args) {

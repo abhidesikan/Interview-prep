@@ -12,7 +12,6 @@ public class UniquePaths {
 		if(x == m && y == n) {
 			return paths;
 		}
-
 		return uniquePaths(m, n,x+1, y, paths) + uniquePaths(m,n,x,y+1, paths);
 	}
 
@@ -36,7 +35,6 @@ public class UniquePaths {
 		}
 
 		return left + right;
-
 	}
 
 	public static void main(String[] args) {

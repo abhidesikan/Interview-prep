@@ -15,7 +15,6 @@ public class LowestCommonAncestorBinarySearchTree {
 		} else {
 			return root;
 		}
-
 	}
 
 	public static void main(String[] args) {

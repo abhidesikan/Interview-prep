@@ -15,7 +15,6 @@ public class ValidPalindromeII {
 		return flag;
 	}
 
-
 	public static boolean checkPalindrome(String s) {
 		if(s.isEmpty()) {
 			return false;
