@@ -4,40 +4,34 @@ import java.util.*;
 
 public class ZigZagLevelOrder {
 	public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-		List<List<Integer>> result = new ArrayList<List<Integer>>();
-
-		if (root == null) {
-			return result;
-		}
-
-		List<Integer> temp = new ArrayList<>();
-		Queue<TreeNode> q = new LinkedList<>();
-		q.add(root);
-		q.add(null);
-		int level = 1;
-		while (!q.isEmpty()) {
-			TreeNode node = q.remove();
-			if (node == null) {
-				if (level % 2 == 0) {
-					Collections.reverse(temp);
-				}
-				result.add(temp);
-				temp = new ArrayList<>();
-				level++;
-				if (!q.isEmpty()) {
-					q.add(null);
-				}
-			} else {
-				temp.add(node.val);
-				if (node.left != null) {
-					q.add(node.left);
-				}
-				if (node.right != null) {
-					q.add(node.right);
-				}
+		TreeNode c=root;
+		List<List<Integer>> ans =new ArrayList<List<Integer>>();
+		if(c==null) return ans;
+		Stack<TreeNode> s1=new Stack<TreeNode>();
+		Stack<TreeNode> s2=new Stack<TreeNode>();
+		s1.push(root);
+		while(!s1.isEmpty()||!s2.isEmpty())
+		{
+			List<Integer> tmp=new ArrayList<Integer>();
+			while(!s1.isEmpty())
+			{
+				c=s1.pop();
+				tmp.add(c.val);
+				if(c.left!=null) s2.push(c.left);
+				if(c.right!=null) s2.push(c.right);
 			}
+			ans.add(tmp);
+			tmp=new ArrayList<Integer>();
+			while(!s2.isEmpty())
+			{
+				c=s2.pop();
+				tmp.add(c.val);
+				if(c.right!=null)s1.push(c.right);
+				if(c.left!=null)s1.push(c.left);
+			}
+			if(!tmp.isEmpty()) ans.add(tmp);
 		}
-		return result;
+		return ans;
 	}
 
 	public static void main(String[] args) {
