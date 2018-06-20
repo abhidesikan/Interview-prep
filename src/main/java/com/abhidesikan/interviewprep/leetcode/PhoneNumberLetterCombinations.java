@@ -6,16 +6,16 @@ public class PhoneNumberLetterCombinations {
 
 	public static LinkedList<String> letterCombinations(String digits) {
 
-		String arr[] = new String[] {"+", "/", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+		String arr[] = new String[]{"+", "/", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
-		LinkedList <String> list = new LinkedList<>();
+		LinkedList<String> list = new LinkedList<>();
 		list.add("");
 
-		for(int i=0; i<digits.length(); i++) {
+		for (int i = 0; i < digits.length(); i++) {
 			int curDigit = Character.getNumericValue(digits.charAt(i));
-			while(list.peek().length() == i) {
+			while (list.peek().length() == i) {
 				String temp = list.remove();
-				for(Character c : arr[curDigit].toCharArray()) {
+				for (Character c : arr[curDigit].toCharArray()) {
 					list.add(temp + c);
 				}
 			}
@@ -26,8 +26,8 @@ public class PhoneNumberLetterCombinations {
 
 	public static LinkedList<String> removeDummy(LinkedList<String> list) {
 
-		LinkedList<String>tempList = new LinkedList<String>();
-		for(String s : list) {
+		LinkedList<String> tempList = new LinkedList<String>();
+		for (String s : list) {
 			String temp = s.replaceAll("/", "");
 			tempList.add(temp);
 		}
