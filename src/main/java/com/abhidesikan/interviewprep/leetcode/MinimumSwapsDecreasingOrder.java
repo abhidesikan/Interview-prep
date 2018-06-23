@@ -20,12 +20,10 @@ public class MinimumSwapsDecreasingOrder {
 
 		int count = 0;
 		int i = 0;
-		int l = 0;
 		int m = 0;
 		while (i < array.length) {
-			if (array[i] != reverse[l]) {
-				System.out.println("l value " + l);
-				while (array[m] != reverse[l]) {
+			if (array[i] != reverse[i]) {
+				while (array[m] != reverse[i]) {
 					m++;
 				}
 				System.out.println(i + " " + m);
@@ -34,7 +32,6 @@ public class MinimumSwapsDecreasingOrder {
 				count++;
 				m = 0;
 			} else {
-				l++;
 				i++;
 			}
 		}
@@ -49,6 +46,6 @@ public class MinimumSwapsDecreasingOrder {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(minSwap(new int[]{3, 1, 2, 4, 5}));
+		System.out.println(minSwap(new int[]{3, 1, 2, 4}));
 	}
 }

@@ -15,34 +15,25 @@ public class CloneGraph {
 		if(node == null) {
 			return null;
 		}
+		HashMap<Integer, UndirectedGraphNode> map = new HashMap<>();
 
-		System.out.println(constructGraph(node));
-		return null;
-	}
+		UndirectedGraphNode newNode = new UndirectedGraphNode(node.label);
+		map.put(node.label, newNode);
+		Queue<UndirectedGraphNode> queue = new LinkedList<>();
 
-	public static String constructGraph(UndirectedGraphNode node) {
-		StringBuilder sb = new StringBuilder();
-		Queue<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode>();
 		queue.add(node);
-		HashMap<UndirectedGraphNode, List<UndirectedGraphNode>> visited = new HashMap<>();
 
 		while(!queue.isEmpty()) {
-			UndirectedGraphNode temp = queue.poll();
-			sb.append(temp.label);
-			for(UndirectedGraphNode adj : temp.neighbors) {
-				List tempList = new ArrayList();
-				if(!visited.containsKey(adj)) {
-					sb.append(",").append(adj.label);
-					queue.add(adj);
-					tempList.add(adj);
-					visited.put(temp, tempList);
+			UndirectedGraphNode temp = queue.remove();
+			for(UndirectedGraphNode n : temp.neighbors) {
+				if(!map.containsKey(n.label)) {
+					map.put(n.label, new UndirectedGraphNode(n.label));
+					queue.add(n);
 				}
+				map.get(temp.label).neighbors.add(map.get(n.label));
 			}
-
-			System.out.println();
-			sb.append("#");
 		}
-		return sb.deleteCharAt(sb.length()-1).toString();
+		return newNode;
 	}
 
 	public static void main(String[] args) {
@@ -60,7 +51,7 @@ public class CloneGraph {
 		node2.neighbors.add(node1);
 		node2.neighbors.add(node2);
 
-		System.out.println(cloneGraph(node));
+		System.out.println(cloneGraph(node).label);
 
 	}
 }
