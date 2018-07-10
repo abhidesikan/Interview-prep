@@ -38,7 +38,7 @@ public class WordDistance {
 	}
 
 	public static void main(String[] args) {
-		WordDistance distance = new WordDistance(new String[]{"abhi", "bridget", "meet", "soon"});
-		System.out.println(shortest("abhi", "bridget"));
+		WordDistance distance = new WordDistance(new String[]{"abhi", "magen", "meet", "soon"});
+		System.out.println(shortest("abhi", "magen"));
 	}
 }
