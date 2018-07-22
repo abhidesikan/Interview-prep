@@ -36,7 +36,7 @@ public class SubTreeOfTree {
 		TreeNode node = new TreeNode(3);
 		node.left = new TreeNode(2);
 		node.right = new TreeNode(1);
-		TreeNode sub = new TreeNode(2);
+		TreeNode sub = new TreeNode(2); 
 		System.out.println(isSubtree(node, sub));
 	}
 }
