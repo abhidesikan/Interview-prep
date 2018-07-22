@@ -10,14 +10,17 @@ public class FindDuplicate {
 			for (int a : nums) {
 				if (a <= mid) ++cnt;
 			}
-			if (cnt <= mid) low = mid + 1;
-			else high = mid - 1;
+			if (cnt <= mid) {
+				low = mid + 1;
+			} else {
+				high = mid - 1;
+			}
 		}
 		return low;
 	}
 
 	public static void main(String[] args) {
-		int arr [] = new int [] {3,2,2,3};
+		int arr[] = new int[]{3, 2, 2, 1, 4};
 		System.out.println(findDuplicate(arr));
 	}
 
