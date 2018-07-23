@@ -2,7 +2,8 @@ package com.abhidesikan.interviewprep.leetcode;
 
 import java.util.Arrays;
 
-public class ProductOfArraySelf {
+public class
+ProductOfArraySelf {
 	public static int[] productExceptSelf(int[] nums) {
 		int result [] = new int[nums.length];
 		int temp = 1;
