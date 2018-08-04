@@ -12,11 +12,11 @@ public class Subsets {
 		return list;
 	}
 
-	private static void backtrack(List<List<Integer>> list , List<Integer> tempList, int [] nums, int start){
+	private static void backtrack(List<List<Integer>> list, List<Integer> tempList, int[] nums, int start) {
 		System.out.println("Adding to master list : " + tempList);
 		System.out.println(start + " start  ");
 		list.add(new ArrayList<>(tempList));
-		for(int i = start; i < nums.length; i++){
+		for (int i = start; i < nums.length; i++) {
 			System.out.println("Adding item to list : " + nums[i]);
 			tempList.add(nums[i]);
 			backtrack(list, tempList, nums, i + 1);
@@ -26,6 +26,6 @@ public class Subsets {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(subsets(new int[] {1,2, 3}));
+		System.out.println(subsets(new int[]{1, 2, 3}));
 	}
 }
