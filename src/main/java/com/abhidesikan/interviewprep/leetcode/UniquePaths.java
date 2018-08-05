@@ -7,37 +7,20 @@ public class UniquePaths {
 
 	public static int uniquePaths(int m, int n) {
 
-		int x = 1, y = 1;
+		int [][] dp = new int[m][n];
+		dp[0][0] = 1;
 
-		if(x == m && y == n) {
-			return paths;
+		for(int i=0; i<m; i++) {
+			for(int j=0; j<n; j++) {
+				if(i > 0 || j > 0) {
+					dp[i][j] = (i > 0 ? dp[i-1][j] : 0 ) + (j > 0 ? dp[i][j-1] : 0);
+				}
+			}
 		}
-		return uniquePaths(m, n,x+1, y, paths) + uniquePaths(m,n,x,y+1, paths);
-	}
-
-	public static int uniquePaths(int m, int n, int x, int y, int paths) {
-		int left = 0;
-		int right = 0;
-		if(x == m && y == n) {
-			return paths++;
-		}
-
-		if(x > m || y > n) {
-			return paths;
-		}
-
-		if(x < m) {
-			left =  uniquePaths(m,n,x+1,y, paths);
-		}
-
-		if(y < n) {
-			right =  uniquePaths(m,n,x,y+1, paths);
-		}
-
-		return left + right;
+		return dp[m-1][n-1];
 	}
 
 	public static void main(String[] args) {
-		System.out.println(uniquePaths(1, 2));
+		System.out.println(uniquePaths(3, 2));
 	}
 }
