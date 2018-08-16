@@ -14,16 +14,18 @@ public class WordBreak {
 		int[] visited = new int[s.length()];
 		while (!queue.isEmpty()) {
 			int start = queue.remove();
-			//		if (visited[start] == 0) {
-			for (int end = start + 1; end <= s.length(); end++) {
-				if (wordDict.contains(s.substring(start, end))) {
-					queue.add(end);
-					if (end == s.length()) {
-						return true;
+			System.out.println(start);
+			if (visited[start] == 0) {
+				for (int end = start + 1; end <= s.length(); end++) {
+					if (wordDict.contains(s.substring(start, end))) {
+						queue.add(end);
+						if (end == s.length()) {
+							return true;
+						}
 					}
 				}
+				visited[start] = 1;
 			}
-			//			visited[start] = 1;
 		}
 		return false;
 	}
