@@ -19,7 +19,7 @@ public class SpiralMatrix {
 		int column = 0;
 
 		while (row < maxRows && column < maxColumns) {
-
+			System.out.println(row + " " + maxRows);
 			//print first row of remaining rows
 			for (int i = column; i < maxColumns; i++) {
 				list.add(matrix[row][i]);
@@ -34,6 +34,7 @@ public class SpiralMatrix {
 
 			//print last of remaining rows
 			if (row < maxRows) {
+				System.out.println(" in here ");
 				for (int i = maxColumns - 1; i >= column; i--) {
 					list.add(matrix[maxRows - 1][i]);
 				}
