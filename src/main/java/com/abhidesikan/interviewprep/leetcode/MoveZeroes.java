@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class MoveZeroes {
 
-	public void moveZeroes(int[] nums) {
+	public static int[] moveZeroes(int[] nums) {
 
 		int j=0;
 
@@ -19,6 +19,8 @@ public class MoveZeroes {
 			nums[j] = 0;
 			j++;
 		}
+
+		return nums;
 	}
 
 	public static void main(String[] args) {
