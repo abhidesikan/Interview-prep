@@ -14,6 +14,7 @@ public class WalkDiagonal {
 		}
 
 		for(int j=1; j<data.length; j++) {
+			System.out.println("here");
 			System.out.println(data[j][data[0].length-1]);
 			checkIfDiagonalExists(data, j, data[0].length-1);
 		}

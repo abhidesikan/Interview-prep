@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class IntegerToBinary {
 
-	static String ipAddressStr ="168";
+	static String ipAddressStr ="192.168.1.1";
 
 	public static void convertIntegerToBinary() throws UnknownHostException {
 		String[] octetArray = ipAddressStr.split("\\.");
