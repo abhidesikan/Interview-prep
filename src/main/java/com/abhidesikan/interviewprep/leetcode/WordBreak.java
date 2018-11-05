@@ -7,6 +7,8 @@ import java.util.Queue;
 
 public class WordBreak {
 
+	static String temp = "";
+
 	public static boolean wordBreak(String s, List<String> wordDict) {
 
 		Queue<Integer> queue = new LinkedList<>();
@@ -19,7 +21,9 @@ public class WordBreak {
 				for (int end = start + 1; end <= s.length(); end++) {
 					if (wordDict.contains(s.substring(start, end))) {
 						queue.add(end);
+						temp += s.substring(start,end);
 						if (end == s.length()) {
+							System.out.println(temp);
 							return true;
 						}
 					}
