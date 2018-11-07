@@ -1,8 +1,10 @@
 package com.abhidesikan.interviewprep.leetcode;
 
+import java.util.Arrays;
+
 public class WiggleSort {
 
-	public static void wiggleSort(int[] nums) {
+	public static int [] wiggleSort(int[] nums) {
 
 		for(int i=0; i<nums.length-1; i++) {
 			if(i % 2 == 0) {
@@ -15,6 +17,7 @@ public class WiggleSort {
 				}
 			}
 		}
+		return nums;
 	}
 
 	public static void swap(int [] nums, int i, int j) {
@@ -24,6 +27,6 @@ public class WiggleSort {
 	}
 
 	public static void main(String[] args) {
-		wiggleSort(new int[] {1,3,2,4,5});
+		System.out.println(Arrays.toString(wiggleSort(new int[] {1,2,3,4,5})));
 	}
 }
