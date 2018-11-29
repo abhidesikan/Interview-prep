@@ -11,6 +11,7 @@ public class RemoveKDigits {
 		if (num.length() == k) {
 			return "0";
 		}
+		System.out.println(num.charAt(0));
 		stack.push(num.charAt(0));
 
 		int temp = 0;
