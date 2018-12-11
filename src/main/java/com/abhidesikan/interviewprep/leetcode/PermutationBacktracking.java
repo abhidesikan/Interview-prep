@@ -18,7 +18,7 @@ public class PermutationBacktracking {
 			list.add(new ArrayList<>(tempList));
 		} else {
 			for (int i = 0; i < nums.length; i++) {
-				System.out.println("Adding before duplicate " + nums[i]);
+				System.out.println("Adding before duplicate " + nums[i] + " index " + i) ;
 				System.out.println("temp list contents " + tempList);
 				if (tempList.contains(nums[i])) continue; // element already exists, skip
 				System.out.println("Adding " + nums[i]);
