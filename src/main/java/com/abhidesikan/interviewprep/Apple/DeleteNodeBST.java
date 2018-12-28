@@ -2,34 +2,38 @@ package com.abhidesikan.interviewprep.Apple;
 
 public class DeleteNodeBST {
 
-	public static TreeNode deleteNode(TreeNode rootNode, int value) {
-		if(rootNode == null) {
+	public static TreeNode deleteNode(TreeNode root, int key) {
+
+		if (root == null) {
 			return null;
 		}
-		if(rootNode.val == value) {
-			TreeNode temp = rootNode;
-			if(rootNode.left == null && rootNode.right == null) {
-				return rootNode;
-			}
-			if(rootNode.left != null) {
-				rootNode = rootNode.left;
-				while (rootNode.right != null) {
-					rootNode = rootNode.right;
-				}
-				rootNode.right = temp.right;
-				return rootNode;
-			}
-			if(rootNode.right != null) {
-				return rootNode.right;
-			}
-			return rootNode;
+
+		if (key < root.val) {
+			root.left = deleteNode(root.left, key);
 		}
-		if(value < rootNode.val) {
-			rootNode.left =  deleteNode(rootNode.left, value);
+		else if (key > root.val) {
+			root.right = deleteNode(root.right, key);
 		} else {
-			rootNode.right =  deleteNode(rootNode.right, value);
+			if (root.left == null) {
+				return root.right;
+			}
+			else if (root.right == null) {
+				return root.left;
+			}
+
+			TreeNode min = findMin(root.right);
+			root.val = min.val;
+			root.right = deleteNode(root.right, root.val);
 		}
-		return rootNode;
+
+		return root;
+	}
+
+	public static TreeNode findMin(TreeNode node) {
+		while (node.left != null) {
+			node = node.left;
+		}
+		return node;
 	}
 
 	public static void main(String[] args) {
