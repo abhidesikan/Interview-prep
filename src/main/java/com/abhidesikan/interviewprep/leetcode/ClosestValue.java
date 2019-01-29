@@ -14,7 +14,7 @@ public class ClosestValue {
 
 	public static void main(String[] args) {
 		TreeNode node = new TreeNode(3);
-		node.left = new TreeNode(4);
+		node.left = new TreeNode(2);
 		node.right = new TreeNode(5);
 		System.out.println(closestValue(node, 2.714));
 	}
