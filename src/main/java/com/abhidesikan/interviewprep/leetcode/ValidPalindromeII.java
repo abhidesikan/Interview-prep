@@ -3,38 +3,43 @@ package com.abhidesikan.interviewprep.leetcode;
 public class ValidPalindromeII {
 
 	public static boolean validPalindrome(String s) {
-		boolean flag = false;
 
-		flag = checkPalindrome(s);
-
-		for(int i=0;i<s.length(); i++) {
-			if(checkPalindrome(s.substring(0,i) + s.substring(i+1))) {
-				flag = true;
-			}
+		if (s.length() == 0) {
+			return true;
 		}
-		return flag;
+
+		int start = 0;
+		int end = s.length() - 1;
+		int count = 0;
+
+		while (start < end && s.charAt(start) == s.charAt(end)) {
+			start++;
+			end--;
+		}
+
+		if (start > end) {
+			return true;
+		}
+
+		if (checkPalindrome(s, start + 1, end) || checkPalindrome(s, start, end - 1)) {
+			return true;
+		}
+
+		return false;
 	}
 
-	public static boolean checkPalindrome(String s) {
-		if(s.isEmpty()) {
-			return false;
+	public static boolean checkPalindrome(String s, int i, int j) {
+
+		while (i <= j && s.charAt(i) == s.charAt(j)) {
+			i++;
+			j--;
 		}
 
-		int i1 = 0;
-		int i2 = s.length()-1;
-
-		char chead, ctail;
-		while(i1 <= i2) {
-			chead = s.charAt(i1);
-			ctail = s.charAt(i2);
-			if(Character.toLowerCase(chead) != Character.toLowerCase(ctail)) {
-				return false;
-			} else {
-				i1++;
-				i2--;
-			}
+		if (i > j) {
+			return true;
 		}
-		return true;
+
+		return false;
 	}
 
 	public static void main(String[] args) {
